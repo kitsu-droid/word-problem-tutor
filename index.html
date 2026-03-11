@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math Tutor App</title>
+<link rel="stylesheet" href="static/styles/style.css">
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker Registered'))
+      .catch(err => console.error('Service Worker Registration Failed:', err));
+  }
+</script>
+</head>
+<body>
+
+<!-- Overlay for mobile -->
+<div id="menu-overlay"></div>
+
+<!-- Side / Bottom Menu -->
+<div id="side-menu" class="menu-drawer">
+  <h2>Menu</h2>
+  <button onclick="switchMode('word-mode')">Word → Equation</button>
+  <button onclick="switchMode('equation-mode')">Equation → Word</button>
+  <button onclick="switchMode('about-mode')">About</button>
+</div>
+
+<!-- Menu Toggle -->
+<button id="menu-toggle">☰ Menu</button>
+
+<div class="container">
+  <header>
+    <img src="static/logo.png" id="logo" alt="Logo">
+    <h1>Math Tutor</h1>
+  </header>
+
+  <!-- Word → Equation Mode -->
+  <div id="word-mode" class="mode active">
+    <div class="card">
+      <p>Type your word problem:</p>
+      <textarea id="word-problem" placeholder="e.g., Twice a number plus 5 equals 15"></textarea>
+      <button id="parse-btn">Parse Problem</button>
+    </div>
+
+    <div class="card">
+      <p id="problem-text"></p>
+      <div class="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <div class="card" id="answer-container">
+      <input type="text" id="user-answer" placeholder="Enter your answer (x = ...)">
+      <button id="submit-answer">Submit Answer</button>
+      <p id="feedback"></p>
+    </div>
+  </div>
+
+  <!-- Equation → Word Mode -->
+  <div id="equation-mode" class="mode">
+    <div class="card">
+      <p>Enter your equation:</p>
+      <input type="text" id="equation-input" placeholder="e.g., 2x + 5 = 15">
+      <button id="convert-btn">Convert to Word Problem</button>
+      <p id="word-output"></p>
+    </div>
+  </div>
+
+  <!-- About Mode -->
+  <div id="about-mode" class="mode">
+    <div id="about-content">
+      <h2>About This App</h2>
+      <p>Welcome to the Math Tutor App! This application helps you practice converting word problems into equations and equations back into word problems.</p>
+      <p>Features include:</p>
+      <ul>
+        <li>Parsing word problems with numbers written in words (e.g., "five") and multipliers ("twice a number").</li>
+        <li>Step-by-step solution hints for Word → Equation mode.</li>
+        <li>Equation → Word problem conversion without requiring an answer.</li>
+        <li>A flexible, responsive interface that works on desktop and mobile.</li>
+        <li>Scrollable About page with detailed explanation about the app’s purpose.</li>
+      </ul>
+      <p>This app was designed to be simple, intuitive, and educational. It emphasizes understanding how to move between word problems and algebraic equations, helping learners build strong foundational math skills.</p>
+    </div>
+  </div>
+</div>
+
+<script src="static/scripts/script.js"></script>
+</body>
+</html>
