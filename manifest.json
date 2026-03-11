@@ -1,0 +1,16 @@
+{
+  "name": "Math Tutor App",
+  "short_name": "MathTutor",
+  "description": "Practice converting word problems to equations and vice versa.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#1976d2",
+  "icons": [
+    { "src": "static/icons/icon-72.png", "sizes": "72x72", "type": "image/png" },
+    { "src": "static/icons/icon-96.png", "sizes": "96x96", "type": "image/png" },
+    { "src": "static/icons/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "static/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "static/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
